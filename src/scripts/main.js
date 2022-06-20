@@ -1,5 +1,4 @@
 'use strict';
-
 /* eslint-disable */
 
 // * WOW library *
@@ -42,7 +41,9 @@ $(document).ready(function () {
   // * Animation Scroll Page *
   $("a[href^='#']").click(function () {
     const _href = $(this).attr('href');
+
     $('html, body').animate({ scrollTop: $(_href).offset().top + 'px' });
+
     return false;
   });
 });
@@ -50,6 +51,7 @@ $(document).ready(function () {
 $(window).scroll(function () {
   // * Fixing the Top Header *
   var header = document.querySelector('.top_header');
+
   if (window.pageYOffset > 640) {
     header.classList.add('header_fixed');
   } else {
@@ -116,23 +118,27 @@ CountUp.prototype.datePartDiff = function (then, now, MAX) {
 CountUp.prototype.calculate = function () {
   var currDate = new Date();
   var prevDate = this.beginDate;
+
   this.seconds = this.datePartDiff(
     prevDate.getSeconds(),
     currDate.getSeconds(),
     60
   );
+
   this.minutes = this.datePartDiff(
     prevDate.getMinutes(),
     currDate.getMinutes(),
     60
   );
   this.hours = this.datePartDiff(prevDate.getHours(), currDate.getHours(), 24);
+
   this.days = this.datePartDiff(
     prevDate.getDate(),
     currDate.getDate(),
     this.numOfDays[currDate.getMonth()]
   );
   this.months = this.datePartDiff(prevDate.getMonth(), currDate.getMonth(), 12);
+
   this.years = this.datePartDiff(
     prevDate.getFullYear(),
     currDate.getFullYear(),
@@ -153,6 +159,7 @@ CountUp.prototype.formatTime = function () {
 CountUp.prototype.updateCounter = function () {
   this.calculate();
   this.formatTime();
+
   this.countainer.innerHTML =
     '<strong>' +
     this.years +
